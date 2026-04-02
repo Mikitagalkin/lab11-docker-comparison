@@ -1,0 +1,34 @@
+# Этап сборки
+FROM rust:1.75-alpine AS builder
+
+RUN apk add --no-cache musl-dev
+
+WORKDIR /app
+
+COPY Cargo.toml Cargo.lock* ./
+
+# Создаем заглушку для кэширования зависимостей
+RUN mkdir src && echo "fn main() {}" > src/main.rs
+RUN cargo build --release
+
+# Копируем реальные исходники
+COPY src ./src
+
+# Собираем с оптимизациями
+RUN touch src/main.rs && cargo build --release
+
+# Финальный образ на alpine
+FROM alpine:3.19
+
+RUN apk --no-cache add ca-certificates
+
+COPY --from=builder /app/target/release/rust-service /usr/local/bin/rust-service
+
+EXPOSE 3000
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD ["wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/health"] || exit 1
+
+USER 1000:1000
+
+CMD ["rust-service"]
