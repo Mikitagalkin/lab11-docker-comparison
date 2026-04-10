@@ -10,3 +10,4 @@ echo "📊 Сравнение размеров образов..."
 python compare_sizes.py
 
 echo "✅ Готово!"
+fix: добавить содержимое в build-and-compare.sh
