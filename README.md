@@ -26,12 +26,19 @@ docker ps
 docker-compose down
 🌐 Эндпоинты сервисов
 Сервис	Порт	Healthcheck	Эндпоинты
+
 Go (scratch)	8080	✅	/health, /ping
+
 Go (alpine)	8081	✅	/health, /ping
+
 Python (slim)	8000	✅	/health, /ping
+
 Python (regular)	8001	✅	/health, /ping
+
 Rust (alpine)	3000	✅	/health, /ping
+
 Rust (regular)	3001	✅	/health, /ping
+
 📊 Сравнение размеров образов
 Образ	Размер	Оптимизация
 go-scratch	~6 MB	Минимальный (scratch)
@@ -40,6 +47,7 @@ python-slim	~95 MB	Оптимизированный (slim)
 python-regular	~120 MB	Стандартный
 rust-alpine	~8 MB	Минимальный (alpine)
 rust-regular	~45 MB	Стандартный (debian)
+
 Выводы
 Go scratch — самый маленький (~6 MB) за счёт статической компиляции
 
@@ -101,12 +109,16 @@ Rust: tokio graceful shutdown с обработкой сигналов
 📝 Принципы SOLID в реализации
 Принцип	Реализация
 S (Single Responsibility)	Каждый Dockerfile отвечает за один образ
+
 O (Open/Closed)	Легко добавить новый образ через новый Dockerfile
+
 L (Liskov Substitution)	Все образы имеют одинаковые эндпоинты
+
 I (Interface Segregation)	Разные Dockerfile для разных целей
+
 D (Dependency Inversion)	Зависимости через базовые образы
-📁 Структура проекта
-text
+Структура проекта
+
 lab11-docker-comparison/
 ├── go-service/                 # Go микросервис
 │   ├── main.go                # Точка входа
@@ -140,8 +152,8 @@ lab11-docker-comparison/
 ├── .gitignore
 ├── PROMPT_LOG.md
 └── README.md
-🔗 Полезные команды
-bash
+Полезные команды
+
 # Просмотр логов
 docker-compose logs -f
 
