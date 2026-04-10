@@ -41,11 +41,17 @@ Rust (regular)	3001	✅	/health, /ping
 
 📊 Сравнение размеров образов
 Образ	Размер	Оптимизация
+
 go-scratch	~6 MB	Минимальный (scratch)
+
 go-alpine	~12 MB	Стандартный (alpine)
+
 python-slim	~95 MB	Оптимизированный (slim)
+
 python-regular	~120 MB	Стандартный
+
 rust-alpine	~8 MB	Минимальный (alpine)
+
 rust-regular	~45 MB	Стандартный (debian)
 
 Выводы
@@ -142,6 +148,7 @@ lab11-docker-comparison/
 │   └── tests/                 # Python тесты
 │       ├── test_client.py
 │       └── test_basic.py
+
 ├── rust-service/              # Rust сервис
 │   ├── src/
 │   │   └── main.rs
@@ -149,12 +156,18 @@ lab11-docker-comparison/
 ├── benchmarks/                # Тесты производительности
 │   ├── load_test.sh           # wrk скрипт
 │   └── memory_test.py         # Профилирование памяти
+
 ├── docker-compose.yml         # Docker оркестрация
 ├── compare_sizes.py           # Сравнение размеров образов
+
 ├── buildx.sh                  # Кросс-платформенная сборка
+
 ├── build-and-compare.sh       # Сборка и сравнение
+
 ├── .gitignore
+
 ├── PROMPT_LOG.md
+
 └── README.md
 Полезные команды
 
