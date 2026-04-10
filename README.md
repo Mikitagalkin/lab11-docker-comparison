@@ -127,11 +127,8 @@ D (Dependency Inversion)	Зависимости через базовые обр
 
 lab11-docker-comparison/
 ├── go-service/   # Go микросервис
-
 │   ├── main.go                # Точка входа
-
 │   ├── go.mod                 # Зависимости
-
 │   ├── handler/               # HTTP обработчики
 │   │   ├── handler.go
 │   │   └── handler_test.go    # Unit-тесты
@@ -139,7 +136,6 @@ lab11-docker-comparison/
 │   │   └── chat.go
 │   └── middleware/            # Middleware
 │       └── metrics.go
-
 ├── python-service/            # Python сервис
 │   ├── main.py                # FastAPI приложение
 │   ├── client.py              # Go клиент
@@ -156,19 +152,14 @@ lab11-docker-comparison/
 ├── benchmarks/                # Тесты производительности
 │   ├── load_test.sh           # wrk скрипт
 │   └── memory_test.py         # Профилирование памяти
-
 ├── docker-compose.yml         # Docker оркестрация
 ├── compare_sizes.py           # Сравнение размеров образов
-
 ├── buildx.sh                  # Кросс-платформенная сборка
-
 ├── build-and-compare.sh       # Сборка и сравнение
-
 ├── .gitignore
-
 ├── PROMPT_LOG.md
-
 └── README.md
+
 Полезные команды
 
 # Просмотр логов
