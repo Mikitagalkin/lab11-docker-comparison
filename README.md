@@ -120,9 +120,12 @@ D (Dependency Inversion)	Зависимости через базовые обр
 Структура проекта
 
 lab11-docker-comparison/
-├── go-service/                 # Go микросервис
+├── go-service/   # Go микросервис
+
 │   ├── main.go                # Точка входа
+
 │   ├── go.mod                 # Зависимости
+
 │   ├── handler/               # HTTP обработчики
 │   │   ├── handler.go
 │   │   └── handler_test.go    # Unit-тесты
@@ -130,6 +133,7 @@ lab11-docker-comparison/
 │   │   └── chat.go
 │   └── middleware/            # Middleware
 │       └── metrics.go
+
 ├── python-service/            # Python сервис
 │   ├── main.py                # FastAPI приложение
 │   ├── client.py              # Go клиент
