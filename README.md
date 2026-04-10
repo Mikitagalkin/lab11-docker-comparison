@@ -115,47 +115,46 @@ Rust: tokio graceful shutdown с обработкой сигналов
 📝 Принципы SOLID в реализации
 Принцип	Реализация
 S (Single Responsibility)	Каждый Dockerfile отвечает за один образ
-
 O (Open/Closed)	Легко добавить новый образ через новый Dockerfile
-
 L (Liskov Substitution)	Все образы имеют одинаковые эндпоинты
-
 I (Interface Segregation)	Разные Dockerfile для разных целей
-
 D (Dependency Inversion)	Зависимости через базовые образы
+
 Структура проекта
-
 lab11-docker-comparison/
-├── go-service/   # Go микросервис
-│   ├── main.go                # Точка входа
-│   ├── go.mod                 # Зависимости
-│   ├── handler/               # HTTP обработчики
-│   │   ├── handler.go
-│   │   └── handler_test.go    # Unit-тесты
-│   ├── websocket/             # WebSocket чат
-│   │   └── chat.go
-│   └── middleware/            # Middleware
-│       └── metrics.go
-├── python-service/            # Python сервис
-│   ├── main.py                # FastAPI приложение
-│   ├── client.py              # Go клиент
-│   ├── websocket_client.py    # WebSocket клиент
-│   ├── requirements.txt       # Зависимости
-│   └── tests/                 # Python тесты
-│       ├── test_client.py
-│       └── test_basic.py
-
-├── rust-service/              # Rust сервис
-│   ├── src/
-│   │   └── main.rs
-│   └── Cargo.toml
-├── benchmarks/                # Тесты производительности
-│   ├── load_test.sh           # wrk скрипт
-│   └── memory_test.py         # Профилирование памяти
-├── docker-compose.yml         # Docker оркестрация
-├── compare_sizes.py           # Сравнение размеров образов
-├── buildx.sh                  # Кросс-платформенная сборка
-├── build-and-compare.sh       # Сборка и сравнение
+├── go-service/ # Go микросервис
+│ ├── main.go # Точка входа
+│ ├── go.mod # Зависимости
+│ ├── handler/ # HTTP обработчики
+│ │ ├── handler.go
+│ │ └── handler_test.go # Unit-тесты
+│ ├── websocket/ # WebSocket чат
+│ │ └── chat.go
+│ └── middleware/ # Middleware
+│ └── metrics.go
+│
+├── python-service/ # Python сервис
+│ ├── main.py # FastAPI приложение
+│ ├── client.py # Go клиент
+│ ├── websocket_client.py # WebSocket клиент
+│ ├── requirements.txt # Зависимости
+│ └── tests/ # Python тесты
+│ ├── test_client.py
+│ └── test_basic.py
+│
+├── rust-service/ # Rust сервис
+│ ├── src/
+│ │ └── main.rs
+│ └── Cargo.toml
+│
+├── benchmarks/ # Тесты производительности
+│ ├── load_test.sh # wrk скрипт
+│ └── memory_test.py # Профилирование памяти
+│
+├── docker-compose.yml # Docker оркестрация
+├── compare_sizes.py # Сравнение размеров образов
+├── buildx.sh # Кросс-платформенная сборка
+├── build-and-compare.sh # Сборка и сравнение
 ├── .gitignore
 ├── PROMPT_LOG.md
 └── README.md
