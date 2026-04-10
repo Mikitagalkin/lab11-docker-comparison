@@ -120,52 +120,43 @@ L (Liskov Substitution)	Все образы имеют одинаковые эн
 I (Interface Segregation)	Разные Dockerfile для разных целей
 D (Dependency Inversion)	Зависимости через базовые образы
 
-Структура проекта
+Структура проекта:
 lab11-docker-comparison/
-├── go-service/ # Go микросервис
-│ ├── main.go # Точка входа
-│ ├── go.mod # Зависимости
-
-│ ├── handler/ # HTTP обработчики
-│ │ ├── handler.go
-│ │ └── handler_test.go # Unit-тесты
-│ ├── websocket/ # WebSocket чат
-
-│ │ └── chat.go
-│ └── middleware/ # Middleware
-│ └── metrics.go
+├── go-service/
+│   ├── main.go
+│   ├── go.mod
+│   ├── handler/
+│   │   ├── handler.go
+│   │   └── handler_test.go
+│   ├── websocket/
+│   │   └── chat.go
+│   └── middleware/
+│       └── metrics.go
 │
-├── python-service/ # Python сервис
-│ ├── main.py # FastAPI приложение
-│ ├── client.py # Go клиент
-│ ├── websocket_client.py # WebSocket клиент
-
-│ ├── requirements.txt # Зависимости
-│ └── tests/ # Python тесты
-│ ├── test_client.py
-│ └── test_basic.py
+├── python-service/
+│   ├── main.py
+│   ├── client.py
+│   ├── websocket_client.py
+│   ├── requirements.txt
+│   └── tests/
+│       ├── test_client.py
+│       └── test_basic.py
 │
-├── rust-service/ # Rust сервис
-│ ├── src/
-│ │ └── main.rs
-│ └── Cargo.toml
+├── rust-service/
+│   ├── src/
+│   │   └── main.rs
+│   └── Cargo.toml
 │
-├── benchmarks/ # Тесты производительности
-│ ├── load_test.sh # wrk скрипт
-│ └── memory_test.py # Профилирование памяти
+├── benchmarks/
+│   ├── load_test.sh
+│   └── memory_test.py
 │
-├── docker-compose.yml # Docker оркестрация
-
-├── compare_sizes.py # Сравнение размеров образов
-
-├── buildx.sh # Кросс-платформенная сборка
-
-├── build-and-compare.sh # Сборка и сравнение
-
+├── docker-compose.yml
+├── compare_sizes.py
+├── buildx.sh
+├── build-and-compare.sh
 ├── .gitignore
-
 ├── PROMPT_LOG.md
-
 └── README.md
 
 Полезные команды
